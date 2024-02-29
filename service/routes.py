@@ -61,6 +61,7 @@ def create_accounts():
 # LIST ALL ACCOUNTS
 ######################################################################
 
+
 @app.route("/accounts", methods=["GET"])
 def list_accounts():
     """Returns all of the Accounts"""
@@ -81,7 +82,7 @@ def read_account(account_id):
     This endpoint will return an Account based on it's id
     """
     app.logger.info("Request to read an Account with id: %s", account_id)
-    
+
     account = Account.find(account_id)
     if not account:
         abort(status.HTTP_404_NOT_FOUND, f"Account with id {account_id} was not found")
